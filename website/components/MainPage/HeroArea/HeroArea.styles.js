@@ -1,14 +1,17 @@
 import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 600px;
+  min-width: 600px;
+  max-width: 1024px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  background-color: gray;
 `;
 
-const Logo = styled.div`
+const Logo = styled.img`
   align-self: center;
+  width: 40%;
 `;
 
 const TimeWrapper = styled.div`

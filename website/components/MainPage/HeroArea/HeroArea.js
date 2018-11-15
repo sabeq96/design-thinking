@@ -16,7 +16,7 @@ const HeroArea = () => {
   let time = new Date();
   return (
     <Wrapper>
-    <Logo>Logo</Logo>
+      <Logo src="../../../static/logouek.png" width="100%"/>
     <TimeWrapper>
       <TimeLine width={0.3} />
         {new Intl.DateTimeFormat('pl', {
