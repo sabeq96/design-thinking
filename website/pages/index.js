@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types';
 
 class Index extends React.Component {
   render() {
-    console.log(this.props);
-    setTimeout(() => this.props.store.changeSiteTitle('SUUUPER'), 3000);
-    
+    const { state, changeSiteTitle } = this.props.store;
     return (
-      <React.Fragment>
-        {this.props.store.state.siteTitle}
-      </React.Fragment>
+      <Fragment>
+        {state.siteTitle}
+      </Fragment>
     )
   }
+}
+
+Index.propTypes = {
+  store: PropTypes.object.isRequired, // state and functions
 }
 
 export default Index
