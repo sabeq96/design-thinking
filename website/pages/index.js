@@ -1,17 +1,14 @@
 import React from 'react'
-import { GlobalStore } from '../container';
-import { Subscribe } from 'unstated';
 
 class Index extends React.Component {
   render() {
+    console.log(this.props);
+    setTimeout(() => this.props.store.changeSiteTitle('SUUUPER'), 3000);
+    
     return (
-      <Subscribe to={[GlobalStore]}>
-        {(globalStore) => {
-          return (
-            <div>{globalStore.state.siteTitle}</div>
-          )
-        }}
-      </Subscribe>
+      <React.Fragment>
+        {this.props.store.state.siteTitle}
+      </React.Fragment>
     )
   }
 }

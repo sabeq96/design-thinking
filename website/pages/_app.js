@@ -1,6 +1,7 @@
-import App, {Container} from 'next/app'
-import React from 'react'
-import { Provider } from 'unstated'
+import React from 'react';
+import App, { Container } from 'next/app';
+import { Provider, Subscribe } from 'unstated';
+import { GlobalStore } from '../container';
 
 class AppWrapper extends App {
   render () {
@@ -8,7 +9,14 @@ class AppWrapper extends App {
     return (
       <Container>
         <Provider>
-          <Component {...pageProps} />
+          <Subscribe to={[GlobalStore]}>
+            {(globalStore) => (
+              <Component
+                {...pageProps}
+                store={globalStore}
+              />
+            )}
+          </Subscribe>
         </Provider>
       </Container>
     )
