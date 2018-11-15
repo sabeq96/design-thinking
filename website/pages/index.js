@@ -1,9 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
+import { GlobalStore } from '../container';
+import { Subscribe } from 'unstated';
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`;
+class Index extends React.Component {
+  render() {
+    return (
+      <Subscribe to={[GlobalStore]}>
+        {(globalStore) => {
+          return (
+            <div>{globalStore.state.siteTitle}</div>
+          )
+        }}
+      </Subscribe>
+    )
+  }
+}
 
-export default () => <Title>My page</Title>
+export default Index
